@@ -100,16 +100,16 @@ export function PreferenceBar() {
         <Label className="text-xs uppercase tracking-wide text-muted-foreground">
           Accessibility must-haves
         </Label>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="flex items-center justify-between gap-2">
+        <div className="grid gap-3">
+          <div className="flex items-center justify-between gap-3">
             <span className="text-sm">Step-free boarding</span>
             <Switch checked={access.stepFree} onCheckedChange={() => toggleAccess("stepFree")} />
           </div>
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-3">
             <span className="text-sm">Wheelchair assistance</span>
             <Switch checked={access.wheelchair} onCheckedChange={() => toggleAccess("wheelchair")} />
           </div>
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-3">
             <span className="text-sm">Accessible toilet</span>
             <Switch
               checked={access.accessibleToilet}

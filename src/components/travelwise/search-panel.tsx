@@ -96,7 +96,7 @@ export function SearchPanel() {
           <Label className="text-xs text-muted-foreground">From</Label>
           <Select value={from} onValueChange={setFrom}>
             <SelectTrigger className="h-12 w-full font-semibold">
-              <SelectValue />
+              <SelectValue>{from}</SelectValue>
             </SelectTrigger>
             <SelectContent>
               {CITIES.map((c) => (
@@ -118,7 +118,7 @@ export function SearchPanel() {
           <Label className="text-xs text-muted-foreground">To</Label>
           <Select value={to} onValueChange={setTo}>
             <SelectTrigger className="h-12 w-full font-semibold">
-              <SelectValue />
+              <SelectValue>{to}</SelectValue>
             </SelectTrigger>
             <SelectContent>
               {CITIES.map((c) => (
