@@ -51,7 +51,7 @@ function ExplorePage() {
       <div className="mx-auto grid w-full max-w-7xl gap-4 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-3">
         {DESTINATIONS.map((d) => {
           const Icon = MODE_ICON[d.cheapestMode];
-          const verdict = VERDICT[d.verdict];
+          const verdict = VERDICT[d.verdict]!;
           return (
             <Card key={d.id} className="card-elevated border-border/60">
               <CardHeader>

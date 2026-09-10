@@ -9,17 +9,17 @@ export function netBalances(members: GroupMember[], expenses: Expense[]): Record
     balances[expense.paidBy] = (balances[expense.paidBy] ?? 0) + expense.amount;
     if (expense.splitMode === "equal") {
       const share = expense.amount / members.length;
-      members.forEach((m) => (balances[m.id] -= share));
+      members.forEach((m) => (balances[m.id] = (balances[m.id] ?? 0) - share));
     } else {
       const total = Object.values(expense.shares).reduce((a, b) => a + b, 0) || 1;
       members.forEach((m) => {
         const owed = ((expense.shares[m.id] ?? 0) / total) * expense.amount;
-        balances[m.id] -= owed;
+        balances[m.id] = (balances[m.id] ?? 0) - owed;
       });
     }
   }
 
-  Object.keys(balances).forEach((k) => (balances[k] = Math.round(balances[k] * 100) / 100));
+  Object.keys(balances).forEach((k) => (balances[k] = Math.round((balances[k] ?? 0) * 100) / 100));
   return balances;
 }
 
@@ -38,14 +38,16 @@ export function simplifySettlements(balances: Record<string, number>): Settlemen
   let i = 0;
   let j = 0;
   while (i < debtors.length && j < creditors.length) {
-    const pay = Math.min(debtors[i].amount, creditors[j].amount);
+    const debtor = debtors[i]!;
+    const creditor = creditors[j]!;
+    const pay = Math.min(debtor.amount, creditor.amount);
     if (pay > 0.5) {
-      settlements.push({ from: debtors[i].id, to: creditors[j].id, amount: Math.round(pay) });
+      settlements.push({ from: debtor.id, to: creditor.id, amount: Math.round(pay) });
     }
-    debtors[i].amount -= pay;
-    creditors[j].amount -= pay;
-    if (debtors[i].amount <= 0.5) i++;
-    if (creditors[j].amount <= 0.5) j++;
+    debtor.amount -= pay;
+    creditor.amount -= pay;
+    if (debtor.amount <= 0.5) i++;
+    if (creditor.amount <= 0.5) j++;
   }
   return settlements;
 }

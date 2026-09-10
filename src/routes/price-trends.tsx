@@ -40,16 +40,16 @@ function heatClass(value: number) {
 }
 
 function PriceTrendsPage() {
-  const [destId, setDestId] = React.useState(DESTINATIONS[0].id);
+  const [destId, setDestId] = React.useState(DESTINATIONS[0]!.id);
   const [range, setRange] = React.useState<"7" | "30">("7");
   const dest = DESTINATIONS.find((d) => d.id === destId)!;
   const history = React.useMemo(
     () => priceHistory(range === "7" ? 7 : 30, dest.fromMumbai),
     [range, dest.fromMumbai],
   );
-  const change = Math.round(
-    ((history[history.length - 1].price - history[0].price) / history[0].price) * 100,
-  );
+  const first = history[0]!.price;
+  const last = history[history.length - 1]!.price;
+  const change = Math.round(((last - first) / first) * 100);
 
   return (
     <>
@@ -88,7 +88,7 @@ function PriceTrendsPage() {
             <CardContent>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
                 {MONTHS.map((m, i) => {
-                  const value = dest.monthlyIndex[i];
+                  const value = dest.monthlyIndex[i] ?? 0;
                   const price = Math.round((dest.fromMumbai * value) / 55 / 10) * 10;
                   return (
                     <div

@@ -52,7 +52,7 @@ function GroupsPage() {
   const [title, setTitle] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [category, setCategory] = React.useState<ExpenseCategory>("Food");
-  const [paidBy, setPaidBy] = React.useState(members[0].id);
+  const [paidBy, setPaidBy] = React.useState(members[0]!.id);
   const [splitMode, setSplitMode] = React.useState<"equal" | "custom">("equal");
   const [shares, setShares] = React.useState<Record<string, string>>({});
 

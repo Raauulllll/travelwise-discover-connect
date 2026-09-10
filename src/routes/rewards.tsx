@@ -32,7 +32,7 @@ export const Route = createFileRoute("/rewards")({
 function RewardsPage() {
   const { ecoPoints, kycVerified, setKycVerified, studentVerified } = useTravelWise();
   const tierIndex = REWARD_TIERS.reduce((acc, t, i) => (ecoPoints >= t.points ? i : acc), 0);
-  const tier = REWARD_TIERS[tierIndex];
+  const tier = REWARD_TIERS[tierIndex]!;
   const next = REWARD_TIERS[tierIndex + 1];
   const progress = next
     ? Math.round(((ecoPoints - tier.points) / (next.points - tier.points)) * 100)
