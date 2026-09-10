@@ -14,8 +14,11 @@ import { Route as CompareRouteImport } from './routes/compare'
 import { Route as EcoTravelRouteImport } from './routes/eco-travel'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as KycRouteImport } from './routes/kyc'
+import { Route as MyTripsRouteImport } from './routes/my-trips'
 import { Route as PriceTrendsRouteImport } from './routes/price-trends'
 import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as StudentRouteImport } from './routes/student'
 import { Route as TravelSafeRouteImport } from './routes/travel-safe'
 
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +46,16 @@ const GroupsRoute = GroupsRouteImport.update({
   path: '/groups',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KycRoute = KycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyTripsRoute = MyTripsRouteImport.update({
+  id: '/my-trips',
+  path: '/my-trips',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PriceTrendsRoute = PriceTrendsRouteImport.update({
   id: '/price-trends',
   path: '/price-trends',
@@ -51,6 +64,11 @@ const PriceTrendsRoute = PriceTrendsRouteImport.update({
 const RewardsRoute = RewardsRouteImport.update({
   id: '/rewards',
   path: '/rewards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentRoute = StudentRouteImport.update({
+  id: '/student',
+  path: '/student',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TravelSafeRoute = TravelSafeRouteImport.update({
@@ -65,8 +83,11 @@ export interface FileRoutesByFullPath {
   '/eco-travel': typeof EcoTravelRoute
   '/explore': typeof ExploreRoute
   '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
   '/price-trends': typeof PriceTrendsRoute
   '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
   '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRoutesByTo {
@@ -75,8 +96,11 @@ export interface FileRoutesByTo {
   '/eco-travel': typeof EcoTravelRoute
   '/explore': typeof ExploreRoute
   '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
   '/price-trends': typeof PriceTrendsRoute
   '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
   '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRoutesById {
@@ -86,8 +110,11 @@ export interface FileRoutesById {
   '/eco-travel': typeof EcoTravelRoute
   '/explore': typeof ExploreRoute
   '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
   '/price-trends': typeof PriceTrendsRoute
   '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
   '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRouteTypes {
@@ -98,8 +125,11 @@ export interface FileRouteTypes {
     | '/eco-travel'
     | '/explore'
     | '/groups'
+    | '/kyc'
+    | '/my-trips'
     | '/price-trends'
     | '/rewards'
+    | '/student'
     | '/travel-safe'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,8 +138,11 @@ export interface FileRouteTypes {
     | '/eco-travel'
     | '/explore'
     | '/groups'
+    | '/kyc'
+    | '/my-trips'
     | '/price-trends'
     | '/rewards'
+    | '/student'
     | '/travel-safe'
   id:
     | '__root__'
@@ -118,8 +151,11 @@ export interface FileRouteTypes {
     | '/eco-travel'
     | '/explore'
     | '/groups'
+    | '/kyc'
+    | '/my-trips'
     | '/price-trends'
     | '/rewards'
+    | '/student'
     | '/travel-safe'
   fileRoutesById: FileRoutesById
 }
@@ -129,8 +165,11 @@ export interface RootRouteChildren {
   EcoTravelRoute: typeof EcoTravelRoute
   ExploreRoute: typeof ExploreRoute
   GroupsRoute: typeof GroupsRoute
+  KycRoute: typeof KycRoute
+  MyTripsRoute: typeof MyTripsRoute
   PriceTrendsRoute: typeof PriceTrendsRoute
   RewardsRoute: typeof RewardsRoute
+  StudentRoute: typeof StudentRoute
   TravelSafeRoute: typeof TravelSafeRoute
 }
 
@@ -171,6 +210,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kyc': {
+      id: '/kyc'
+      path: '/kyc'
+      fullPath: '/kyc'
+      preLoaderRoute: typeof KycRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-trips': {
+      id: '/my-trips'
+      path: '/my-trips'
+      fullPath: '/my-trips'
+      preLoaderRoute: typeof MyTripsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/price-trends': {
       id: '/price-trends'
       path: '/price-trends'
@@ -183,6 +236,13 @@ declare module '@tanstack/react-router' {
       path: '/rewards'
       fullPath: '/rewards'
       preLoaderRoute: typeof RewardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student': {
+      id: '/student'
+      path: '/student'
+      fullPath: '/student'
+      preLoaderRoute: typeof StudentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/travel-safe': {
@@ -201,8 +261,11 @@ const rootRouteChildren: RootRouteChildren = {
   EcoTravelRoute: EcoTravelRoute,
   ExploreRoute: ExploreRoute,
   GroupsRoute: GroupsRoute,
+  KycRoute: KycRoute,
+  MyTripsRoute: MyTripsRoute,
   PriceTrendsRoute: PriceTrendsRoute,
   RewardsRoute: RewardsRoute,
+  StudentRoute: StudentRoute,
   TravelSafeRoute: TravelSafeRoute,
 }
 export const routeTree = rootRouteImport
