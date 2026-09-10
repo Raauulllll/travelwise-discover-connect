@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as EcoTravelRouteImport } from './routes/eco-travel'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as KycRouteImport } from './routes/kyc'
+import { Route as MyTripsRouteImport } from './routes/my-trips'
+import { Route as PriceTrendsRouteImport } from './routes/price-trends'
+import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as StudentRouteImport } from './routes/student'
+import { Route as TravelSafeRouteImport } from './routes/travel-safe'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcoTravelRoute = EcoTravelRouteImport.update({
+  id: '/eco-travel',
+  path: '/eco-travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsRoute = GroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KycRoute = KycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyTripsRoute = MyTripsRouteImport.update({
+  id: '/my-trips',
+  path: '/my-trips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriceTrendsRoute = PriceTrendsRouteImport.update({
+  id: '/price-trends',
+  path: '/price-trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentRoute = StudentRouteImport.update({
+  id: '/student',
+  path: '/student',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelSafeRoute = TravelSafeRouteImport.update({
+  id: '/travel-safe',
+  path: '/travel-safe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/eco-travel': typeof EcoTravelRoute
+  '/explore': typeof ExploreRoute
+  '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
+  '/price-trends': typeof PriceTrendsRoute
+  '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
+  '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/eco-travel': typeof EcoTravelRoute
+  '/explore': typeof ExploreRoute
+  '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
+  '/price-trends': typeof PriceTrendsRoute
+  '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
+  '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
+  '/eco-travel': typeof EcoTravelRoute
+  '/explore': typeof ExploreRoute
+  '/groups': typeof GroupsRoute
+  '/kyc': typeof KycRoute
+  '/my-trips': typeof MyTripsRoute
+  '/price-trends': typeof PriceTrendsRoute
+  '/rewards': typeof RewardsRoute
+  '/student': typeof StudentRoute
+  '/travel-safe': typeof TravelSafeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/compare'
+    | '/eco-travel'
+    | '/explore'
+    | '/groups'
+    | '/kyc'
+    | '/my-trips'
+    | '/price-trends'
+    | '/rewards'
+    | '/student'
+    | '/travel-safe'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/compare'
+    | '/eco-travel'
+    | '/explore'
+    | '/groups'
+    | '/kyc'
+    | '/my-trips'
+    | '/price-trends'
+    | '/rewards'
+    | '/student'
+    | '/travel-safe'
+  id:
+    | '__root__'
+    | '/'
+    | '/compare'
+    | '/eco-travel'
+    | '/explore'
+    | '/groups'
+    | '/kyc'
+    | '/my-trips'
+    | '/price-trends'
+    | '/rewards'
+    | '/student'
+    | '/travel-safe'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompareRoute: typeof CompareRoute
+  EcoTravelRoute: typeof EcoTravelRoute
+  ExploreRoute: typeof ExploreRoute
+  GroupsRoute: typeof GroupsRoute
+  KycRoute: typeof KycRoute
+  MyTripsRoute: typeof MyTripsRoute
+  PriceTrendsRoute: typeof PriceTrendsRoute
+  RewardsRoute: typeof RewardsRoute
+  StudentRoute: typeof StudentRoute
+  TravelSafeRoute: typeof TravelSafeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eco-travel': {
+      id: '/eco-travel'
+      path: '/eco-travel'
+      fullPath: '/eco-travel'
+      preLoaderRoute: typeof EcoTravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups': {
+      id: '/groups'
+      path: '/groups'
+      fullPath: '/groups'
+      preLoaderRoute: typeof GroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kyc': {
+      id: '/kyc'
+      path: '/kyc'
+      fullPath: '/kyc'
+      preLoaderRoute: typeof KycRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-trips': {
+      id: '/my-trips'
+      path: '/my-trips'
+      fullPath: '/my-trips'
+      preLoaderRoute: typeof MyTripsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/price-trends': {
+      id: '/price-trends'
+      path: '/price-trends'
+      fullPath: '/price-trends'
+      preLoaderRoute: typeof PriceTrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student': {
+      id: '/student'
+      path: '/student'
+      fullPath: '/student'
+      preLoaderRoute: typeof StudentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel-safe': {
+      id: '/travel-safe'
+      path: '/travel-safe'
+      fullPath: '/travel-safe'
+      preLoaderRoute: typeof TravelSafeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompareRoute: CompareRoute,
+  EcoTravelRoute: EcoTravelRoute,
+  ExploreRoute: ExploreRoute,
+  GroupsRoute: GroupsRoute,
+  KycRoute: KycRoute,
+  MyTripsRoute: MyTripsRoute,
+  PriceTrendsRoute: PriceTrendsRoute,
+  RewardsRoute: RewardsRoute,
+  StudentRoute: StudentRoute,
+  TravelSafeRoute: TravelSafeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
